@@ -1,14 +1,13 @@
-from optparse import Option
 from typing import Optional
 
 from fastapi import APIRouter, Depends, UploadFile, Query
 
-from core.security import get_current_user
-from models.candidate import CandidateBasicInfo, CandidateProfile, JobCriteria, Skills, RegionEnum, ExperienceLevelEnum, \
+from core.security import get_current_user, check_candidate_role
+from models.candidate import CandidateBasicInfo, JobCriteria, Skills, RegionEnum, ExperienceLevelEnum, \
     DesiredSalaryEnum
 from services.candidate import CandidateService
 
-router = APIRouter(tags=["Candidates"], prefix="/candidate", dependencies=[Depends(get_current_user)])
+router = APIRouter(tags=["Candidates"], prefix="/candidate", dependencies=[Depends(check_candidate_role)])
 
 
 # Create and update the user profile

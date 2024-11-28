@@ -67,6 +67,7 @@ async def check_candidate_role(token: Annotated[str, Depends(oauth2_scheme)]):
     user = await get_current_user(token)
     if user['role'] != 'candidate':
         raise HTTPException(status_code=403, detail="You are not authorized to perform this action")
+    return user
 
 
 async def check_employer_role(token: Annotated[str, Depends(oauth2_scheme)]):

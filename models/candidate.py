@@ -1,11 +1,9 @@
 # Enums for predefined choices
-from datetime import date, datetime, timezone
+from datetime import datetime, timezone
 from enum import Enum
 from typing import Optional, List
-from wsgiref.validate import validator
 
 from pydantic import BaseModel
-from pydantic.v1 import UUID1
 
 
 # Education Level Enum
@@ -92,8 +90,8 @@ class SpokenLanguage(BaseModel):
 
 class Education(BaseModel):
     level: EducationLevelEnum
-    from_date: Optional[str]
-    to_date: Optional[str]
+    from_date: Optional[str] # like i will want month and year
+    to_date: Optional[str] # like i will want month and year
     is_present: Optional[bool] = False
     type_of_training: Optional[str]
     institution_name: Optional[str]
@@ -138,6 +136,7 @@ class Experience(BaseModel):
 class JobCriteria(BaseModel):
     seeked_jobs: List[str]
     business_sectors: List[str]
+    availability: List[AvailabilityLevelEnum]
     geographical_mobility: List[RegionEnum]
     desired_contract_type: Optional[ContractTypeEnum]
     desired_salary: Optional[DesiredSalaryEnum]
