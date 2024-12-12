@@ -60,8 +60,8 @@ project-root/
 
 1. **Clone the Repository**:
     ```bash
-    git clone <repository-url>
-    cd job-recruitment-system
+    git clone https://github.com/yvesHakizimana/Job-recruit-system.git
+    cd Job-recruit-system
     ```
 
 2. **Create Virtual Environment**:
